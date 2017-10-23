@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "author": "Chan Tzekin",
   "description": "Mock servers build with gui tools",
-  "license": null,
+  "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
