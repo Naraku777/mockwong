@@ -22,6 +22,7 @@
         <div class="doc">
           <div class="title alt">Other Documentation</div>
           <button class="alt" @click="open('https://electron.atom.io/docs/')">Electron</button>
+          <v-btn color="primary">Primary</v-btn>
           <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
         </div>
       </div>
@@ -44,7 +45,6 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
   * {
     box-sizing: border-box;
@@ -52,7 +52,7 @@
     padding: 0;
   }
 
-  body { font-family: 'Source Sans Pro', sans-serif; }
+  /* body { font-family: 'Source Sans Pro', sans-serif; } */
 
   #wrapper {
     background:
