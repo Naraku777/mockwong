@@ -11,6 +11,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const globalsPath = path.join(__dirname, '../src/renderer/assets/globals.less')
+const { getLessVariables } = require('./utils')
+
 /**
  * List of node_modules to include in webpack bundle
  *
@@ -49,6 +52,19 @@ let rendererConfig = {
         })
       },
       {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            {
+              loader: 'less-loader',
+              options: { globalVars: getLessVariables(globalsPath) }
+            }
+          ],
+        })
+      },
+      {
         test: /\.html$/,
         use: 'vue-html-loader'
       },
@@ -68,8 +84,14 @@ let rendererConfig = {
           options: {
             extractCSS: process.env.NODE_ENV === 'production',
             loaders: {
-              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader'
+              less: [
+                'vue-style-loader',
+                'css-loader',
+                {
+                  loader: 'less-loader',
+                  options: { globalVars: getLessVariables(globalsPath) }
+                }
+              ]
             }
           }
         }

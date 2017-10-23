@@ -10,6 +10,10 @@
   }
 </script>
 
-<style>
-  /* CSS */
+<style lang="less">
+
+#app {
+  // color: @brand-primary;
+}
+
 </style>
