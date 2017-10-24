@@ -25,7 +25,7 @@ function createWindow () {
     width: 1000,
     autoHideMenuBar: true,
     frame: false,
-    titleBarStyle: 'hiddenInset'
+    titleBarStyle: 'hidden'
   })
 
   mainWindow.loadURL(winURL)
